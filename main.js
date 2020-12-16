@@ -57,7 +57,7 @@ class Field {
     }
 
     cheater () {
-        console.log(this.fieldArray);
+        
         this.fieldArray.map(row =>{
             for (let i=0; i < row.length; i++){
                 if (row[i]===hole){
@@ -67,7 +67,7 @@ class Field {
                
             });
         
-        console.log(this.fieldArray);
+        
     }
 }
 
