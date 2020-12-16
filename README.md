@@ -1,5 +1,5 @@
 # Introduction
-Short intro goes here
+Terminal game where the player avoids holes to find their hat. 
 
 # Table of Contents
 * [General Info](#general-info)
@@ -7,11 +7,11 @@ Short intro goes here
 * [Setup](#setup)
 
 ## General Info
-Blah Blah Info
+Created as part of the Codecademy Full Stack program to practice Javascript classes
 
 ## Technologies
-* Tech 1
-* Tech 2
+* Javascript
+* Node.js
 
 ## Setup
-Blah Blah Setup
+To run, download files, ensure node is installed on your machine, and then execute command "node main.js" in your terminal. 
