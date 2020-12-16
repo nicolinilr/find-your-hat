@@ -57,13 +57,17 @@ class Field {
     }
 
     cheater () {
-        this.fieldArray.forEach(row =>{
-            row.forEach(element =>{
-                if (element === hole ){
-                    element = fieldCharacter;
+        console.log(this.fieldArray);
+        this.fieldArray.map(row =>{
+            for (let i=0; i < row.length; i++){
+                if (row[i]===hole){
+                    row[i]=fieldCharacter;
                 };
+            };
+               
             });
-        });
+        
+        console.log(this.fieldArray);
     }
 }
 
@@ -92,21 +96,33 @@ if (dir === 'U'){
     playerPosX -= 1;
 } else if (dir === 'R') {
     playerPosX += 1;
-} else{
+} else if (dir === 'CHEAT'){
+    newGame.cheater();
+    console.log('Cheatcode enabled, all holes filled!');
+} else {
     console.log ('Wrong input, you lose!')
     gameEnd=true;
 };
 
-//Checks to see if they lost
+//For Debug 
+//console.log('X is ' + playerPosX +' and Y is ' +playerPosY);
+//console.log(newGame.fieldArray.length);
+
+
+
+//Checks to see if they fell off the map
+if (playerPosY < 0 || playerPosY >=newGame.fieldArray.length || playerPosX < 0 || playerPosX >= newGame.fieldArray[0].length){
+    console.log('You fell off the map into eternity!');
+    gameEnd = true;
+};
+
+if (!gameEnd){
 if (newGame.fieldArray[playerPosY][playerPosX] === hole){
     console.log('You fell in a hole and died!');
     gameEnd=true;
 };
 
-if (playerPosY < 0 || playerPosY >newGame.fieldArray.length || playerPosX < 0 || playerPosX > newGame.fieldArray[0].length){
-    console.log('You fell off the map into eternity!');
-    gameEnd = true;
-};
+
 
 //Check to see if they found the hat
 
@@ -119,7 +135,7 @@ if (newGame.fieldArray[playerPosY][playerPosX] === hat){
 if (!gameEnd){
     newGame.fieldArray[playerPosY][playerPosX] = playerCharacter; 
 }
+}
 //Print the map for the next iteration
 newGame.print();
-
 }
